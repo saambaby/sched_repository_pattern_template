@@ -7,7 +7,7 @@ import 'errors.dart';
 
 
 @immutable
-abstract class ValueObjects<T> {
+abstract class ValueObject<T> {
 
   Either<ValueFailure<T>, T>get value;
   /// Throws [UnexpectedValueError] containing  [ValueFailure]
@@ -20,7 +20,7 @@ abstract class ValueObjects<T> {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
-    return other is ValueObjects<T> && other.value == value;
+    return other is ValueObject<T> && other.value == value;
   }
   @override
   int get hashCode => value.hashCode;

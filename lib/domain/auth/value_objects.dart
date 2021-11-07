@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
 import 'package:sched/domain/core/failures/failures.dart';
-import 'package:sched/domain/core/value_objects.dart';
+import 'package:sched/domain/core/value_object.dart';
 import 'package:sched/domain/core/value_validators.dart';
 
-class EmailAddress extends ValueObjects<String> {
+class EmailAddress extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
 
@@ -13,7 +13,7 @@ class EmailAddress extends ValueObjects<String> {
   EmailAddress._(this.value);
 }
 
-class Password extends ValueObjects<String> {
+class Password extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
 
@@ -22,7 +22,7 @@ class Password extends ValueObjects<String> {
   }
   Password._(this.value);
 }
-class FieldConstant extends ValueObjects<String> {
+class FieldConstant extends ValueObject<String> {
   @override
    final Either<ValueFailure<String>, String> value;
 
