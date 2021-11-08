@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:injectable/injectable.dart';
+import 'package:sched/injectable.dart';
+
 
 void main() {
+  configureDependencies(Environment.prod);
   runApp(const MyApp());
 }
 
