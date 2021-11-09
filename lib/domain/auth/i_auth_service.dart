@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:injectable/injectable.dart';
 import 'package:sched/domain/auth/failures/auth_failure.dart';
 import 'package:sched/domain/auth/value_objects.dart';
 

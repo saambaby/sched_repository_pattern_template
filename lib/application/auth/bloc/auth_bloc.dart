@@ -42,7 +42,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
                   emailAddress: state.email,
                   password: state.password);
               emit(state.copyWith(
-                  isSubmitting:true,
+                  isSubmitting:false,
                   authFailureOrSuccessOption: some(failureOrSuccess)
               ));
             } else{
@@ -64,7 +64,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
                    emailAddress: state.email,
                    password: state.password);
                emit(state.copyWith(
-                   isSubmitting:true,
+                   isSubmitting:false,
                    authFailureOrSuccessOption: some(failureOrSuccess)
                ));
              } else{

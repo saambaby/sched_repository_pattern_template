@@ -7,8 +7,8 @@ import 'package:sched/domain/auth/failures/auth_failure.dart';
 import 'package:sched/domain/auth/i_auth_service.dart';
 import 'package:sched/domain/auth/value_objects.dart';
 
-@LazySingleton()
-@Injectable(as: IAuthService)
+
+@LazySingleton(as: IAuthService)
 class AuthService implements IAuthService {
   final FirebaseAuth firebaseAuth;
   final GoogleSignIn googleSignIn;
