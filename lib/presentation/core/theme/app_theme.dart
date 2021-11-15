@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_classes_with_only_static_members
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 
 class AppTheme {
@@ -9,12 +10,12 @@ class AppTheme {
 
   static const Color _scaffoldColorLight = Color(0xfff5f5f5);
   static Color shadowColor = Colors.grey.withOpacity(.1);
-  static const Color _primaryColorLight = Color(0xff5b2263);
+  static const Color _primaryColorLight = Color(0xffa686cd);
   static const Color _buttonColor = Color(0xfff6596e);
 
   static const Color _secondaryColorLight = Color(0xfff5ded3);
 
-  static const Color _errorColorLight = Color(0xffb00020);
+  static const Color _errorColorLight = Color(0xfffe0e3c);
 
   ///DARK MODE
   ///
@@ -45,84 +46,85 @@ class AppTheme {
         error: _errorColorLight,
       ),
       inputDecorationTheme: inputDecorationTheme(),
-      textTheme: const TextTheme(
-        headline1: TextStyle(
-          fontFamily: 'CircularStd',
+      textTheme:  const TextTheme(
+        headline1:TextStyle(
+          fontFamily: "BrandonGrotesque Bold",
           fontSize: 32,
           fontWeight: FontWeight.w900,
           letterSpacing: -1.5,
           color: Colors.black,
         ),
-        headline2: TextStyle(
-          fontFamily: 'CircularStd',
+        headline2:TextStyle(
+          fontFamily: "BrandonGrotesque Bold",
           fontSize: 28,
           fontWeight: FontWeight.w800,
           letterSpacing: -1.0,
           color: Colors.black,
         ),
-        headline3: TextStyle(
-          fontFamily: 'CircularStd',
+        headline3:TextStyle(
+          fontFamily: "BrandonGrotesque Bold",
           fontSize: 24,
           fontWeight: FontWeight.w800,
           letterSpacing: -0.75,
           color: Colors.black,
         ),
-        headline4: TextStyle(
-          fontFamily: 'CircularStd',
+        headline4:  TextStyle(
+          fontFamily: "BrandonGrotesque Bold",
           fontSize: 20,
           fontWeight: FontWeight.w800,
           letterSpacing: -0.50,
           color: Colors.black,
         ),
         headline5: TextStyle(
-          fontFamily: 'CircularStd',
+          fontFamily: "BrandonGrotesque Bold",
           fontSize: 18,
           fontWeight: FontWeight.w800,
           letterSpacing: -0.5,
           color: Colors.black,
         ),
 
-        headline6: TextStyle(
-          fontFamily: 'CircularStd',
-          fontSize: 16,
+        headline6:TextStyle(
+        fontFamily: "BrandonGrotesque Bold",
+          fontSize: 12,
           fontWeight: FontWeight.w700,
-          letterSpacing: -0.25,
+          letterSpacing: 1,
           color: Colors.black,
         ),
         subtitle1: TextStyle(
-          fontFamily: 'CircularStd',
+          fontFamily: "BrandonGrotesque Book",
           fontSize: 16,
           letterSpacing: 0.15,
           color: Colors.black,
         ),
         subtitle2: TextStyle(
-          fontFamily: 'CircularStd',
+          fontFamily: "BrandonGrotesque Book",
           fontSize: 14,
           letterSpacing: 0.1,
           fontWeight: FontWeight.w600,
           color: Colors.black,
         ),
-        caption: TextStyle(
-          fontFamily: 'CircularStd',
+        caption:TextStyle(
+          fontFamily: "BrandonGrotesque Book",
           fontSize: 12,
           color: Colors.black,
         ),
         bodyText1: TextStyle(
-          fontFamily: 'CircularStd',
+          fontFamily: "BrandonGrotesque Book",
           fontSize: 16,
           letterSpacing: 0.5,
           color: Colors.black,
         ),
         bodyText2: TextStyle(
-          fontFamily: 'CircularStd',
+          fontFamily: "BrandonGrotesque Book",
           fontSize: 14,
           letterSpacing: 0.25,
           color: Colors.black,
         ),
 
         //BUTTON
-        button: TextStyle(
-          fontFamily: 'CircularStd',
+        button:TextStyle(
+          fontFamily: "BrandonGrotesque Book",
+
           fontSize: 11,
           letterSpacing: 1.25,
           fontWeight: FontWeight.w700,
@@ -137,19 +139,19 @@ class AppTheme {
       gapPadding: 12,
       borderSide: BorderSide(
         color: shadowColor,
-        width: 1,
+        width: 0,
       ),
-      borderRadius: BorderRadius.circular(8),
+
     );
     return InputDecorationTheme(
     // labelStyle: const TextStyle(color: Color(0xFF54E597), fontSize: 20.0, height: 0.8),
       hintStyle: const TextStyle(
         fontFamily: 'CircularStd',
         fontSize: 14,
-        letterSpacing: 0.25,
-        color: Colors.white,
+        letterSpacing: 0.75,
+        color: Colors.black,
       ),
-    floatingLabelBehavior: FloatingLabelBehavior.auto,
+      floatingLabelBehavior: FloatingLabelBehavior.always,
     enabledBorder: outlineInputBorder,
     focusedBorder: outlineInputBorder.copyWith( borderSide:const BorderSide(
       color: Colors.white,

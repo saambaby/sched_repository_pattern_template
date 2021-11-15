@@ -6,6 +6,7 @@ Either<ValueFailure<String>, String> validateEmailAddress(String input) {
   if (isEmail(input)) {
     return Right(input);
   } else {
+    print("test fail$input");
     return Left(ValueFailure.invalidEmail(failedValue: input));
   }
 }

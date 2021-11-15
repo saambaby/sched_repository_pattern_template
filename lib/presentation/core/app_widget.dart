@@ -1,7 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:sched/presentation/auth/sign_in_page.dart';
+import 'package:sched/presentation/auth/authentication_page.dart';
 import 'package:sched/presentation/core/theme/app_theme.dart';
 
 class AppWidget extends StatelessWidget {
@@ -13,7 +13,7 @@ class AppWidget extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'sched',
       theme: AppTheme.light(),
-      home:  const SignIn(),
+      home:  const Authentication(),
     );
   }
 }

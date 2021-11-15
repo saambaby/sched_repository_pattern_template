@@ -21,10 +21,10 @@ class AuthService implements IAuthService {
     final emailAddressStr = emailAddress.getOrCrash();
     final passwordStr = password.getOrCrash();
     try {
-      await firebaseAuth.createUserWithEmailAndPassword(
-          email: emailAddressStr, password: passwordStr);
+      final result =await firebaseAuth.createUserWithEmailAndPassword(email:
+      emailAddressStr, password: passwordStr);
       return const Right(unit);
-    } on PlatformException catch (e) {
+    } on FirebaseAuthException catch (e) {
       if (e.code == 'email-already-in-use') {
         return const Left(AuthFailure.emailAlreadyInUse());
       } else {
@@ -39,11 +39,13 @@ class AuthService implements IAuthService {
     final emailAddressStr = emailAddress.getOrCrash();
     final passwordStr = password.getOrCrash();
     try {
-      await firebaseAuth.signInWithEmailAndPassword(
-          email: emailAddressStr, password: passwordStr);
-      return const Right(unit);
-    } on PlatformException catch (e) {
+      final result=await firebaseAuth.signInWithEmailAndPassword(email:
+     emailAddressStr, password: passwordStr);
+       print(result);      return const Right(unit);
+    } on FirebaseAuthException catch (e) {
+
       if (e.code == 'wrong-password' || e.code == 'user-not-found') {
+        print(e.code);
         return const Left(AuthFailure.invalidEmailAndPasswordCombination());
       } else {
         return const Left(AuthFailure.serverError());
