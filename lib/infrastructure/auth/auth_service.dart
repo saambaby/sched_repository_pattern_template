@@ -5,7 +5,9 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
 import 'package:sched/domain/auth/failures/auth_failure.dart';
 import 'package:sched/domain/auth/i_auth_service.dart';
+import 'package:sched/domain/auth/model/user_model.dart';
 import 'package:sched/domain/auth/value_objects.dart';
+import 'package:sched/domain/core/value_object.dart';
 
 
 @LazySingleton(as: IAuthService)
@@ -69,5 +71,16 @@ class AuthService implements IAuthService {
    } on PlatformException catch(e){
        return const Left(AuthFailure.serverError());
    }
+  }
+
+  @override
+  Option<UserModel> getSignedInUser() => some(UserModel(id: UniqueId.fromUniqueString(firebaseAuth.currentUser?.uid)));
+
+  @override
+  Future<void> signOut() {
+    return Future.wait([
+      googleSignIn.signOut(),
+      firebaseAuth.signOut()
+    ]);
   }
 }

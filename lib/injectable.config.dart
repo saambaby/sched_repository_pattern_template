@@ -10,10 +10,11 @@ import 'package:google_sign_in/google_sign_in.dart' as _i4;
 import 'package:injectable/injectable.dart' as _i2;
 
 import 'application/auth/bloc/auth_bloc.dart' as _i7;
+import 'application/auth/bloc/intro/auth_init_bloc.dart' as _i8;
 import 'domain/auth/i_auth_service.dart' as _i5;
 import 'infrastructure/auth/auth_service.dart' as _i6;
 import 'infrastructure/core/register_injectable_module.dart'
-    as _i8; // ignore_for_file: unnecessary_lambdas
+    as _i9; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -29,7 +30,8 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       firebaseAuth: get<_i3.FirebaseAuth>(),
       googleSignIn: get<_i4.GoogleSignIn>()));
   gh.factory<_i7.AuthBloc>(() => _i7.AuthBloc(get<_i5.IAuthService>()));
+  gh.factory<_i8.AuthInitBloc>(() => _i8.AuthInitBloc(get<_i5.IAuthService>()));
   return get;
 }
 
-class _$RegisterModule extends _i8.RegisterModule {}
+class _$RegisterModule extends _i9.RegisterModule {}

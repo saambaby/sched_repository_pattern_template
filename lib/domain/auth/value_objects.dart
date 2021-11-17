@@ -31,3 +31,10 @@ class FieldConstant extends ValueObject<String> {
   }
   FieldConstant._(this.value);
 }
+
+
+
+
+
+
+

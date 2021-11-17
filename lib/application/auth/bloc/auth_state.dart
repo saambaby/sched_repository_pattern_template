@@ -16,4 +16,5 @@ class AuthState with _$AuthState {
       showErrorMessage: false,
       isSubmitting: false,
       authFailureOrSuccessOption: none());
+
 }

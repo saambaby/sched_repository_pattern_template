@@ -1,5 +1,7 @@
 import 'package:dartz/dartz.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:sched/domain/auth/failures/auth_failure.dart';
+import 'package:sched/domain/auth/model/user_model.dart';
 import 'package:sched/domain/auth/value_objects.dart';
 
 
@@ -13,4 +15,7 @@ abstract class IAuthService{
       required Password password,
    });
    Future<Either<AuthFailure, Unit>> signInWithGoogle();
+   Option<UserModel> getSignedInUser();
+   Future<void> signOut();
+
 }
