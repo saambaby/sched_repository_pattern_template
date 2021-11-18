@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
-import 'package:sched/domain/auth/failures/auth_failure.dart';
+import 'package:sched/domain/auth/failure/auth_failure.dart';
 import 'package:sched/domain/auth/i_auth_service.dart';
 import 'package:sched/domain/auth/model/user_model.dart';
 import 'package:sched/domain/auth/value_objects.dart';

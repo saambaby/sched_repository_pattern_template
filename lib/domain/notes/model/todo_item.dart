@@ -8,7 +8,8 @@ part 'todo_item.freezed.dart';
 
 @freezed
 abstract class TodoItem implements _$TodoItem {
-   const TodoItem._();
+  const TodoItem._();
+
   const factory TodoItem(
       {required UniqueId id,
       required TodoName name,
@@ -18,7 +19,7 @@ abstract class TodoItem implements _$TodoItem {
       TodoItem(id: UniqueId(), name: TodoName(''), isDone: false);
 
   // here we are doing input validation for the whole model into one
- Option<ValueFailure<dynamic>> get failureOption{
-   return  name.value.fold((l) => some(l) , (r) => none());
- }
+  Option<ValueFailure<dynamic>> get failureOption {
+    return name.value.fold((l) => some(l), (r) => none());
+  }
 }

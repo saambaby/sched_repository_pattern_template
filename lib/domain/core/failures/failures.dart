@@ -4,7 +4,7 @@ part 'failures.freezed.dart';
 
 @freezed
 abstract class ValueFailure<T> with _$ValueFailure<T> {
-  // authentication value failures
+  // authentication value failure
   const factory ValueFailure.invalidEmail({
     required String failedValue,
   }) = InvalidEmail<T>;
@@ -17,7 +17,7 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
     required String failedValue,
   }) = InvalidFieldValue<T>;
 
-  // notes value failures
+  // notes value failure
   const factory ValueFailure.exceedingLength({required T failedValue, required int max}) = ExceedingLength<T>;
 
   const factory ValueFailure.empty({required T failedValue})

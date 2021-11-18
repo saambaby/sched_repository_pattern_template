@@ -1,8 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:sched/domain/auth/failures/auth_failure.dart';
 import 'package:sched/domain/auth/model/user_model.dart';
 import 'package:sched/domain/auth/value_objects.dart';
+import 'failure/auth_failure.dart';
 
 
 abstract class IAuthService{

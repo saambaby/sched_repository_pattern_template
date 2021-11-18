@@ -3,7 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
-import 'package:sched/domain/auth/failures/auth_failure.dart';
+import 'package:sched/domain/auth/failure/auth_failure.dart';
 import 'package:sched/domain/auth/i_auth_service.dart';
 import 'package:sched/domain/auth/value_objects.dart';
 
