@@ -4,10 +4,12 @@ import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
 import 'package:sched/domain/auth/failure/auth_failure.dart';
-import 'package:sched/domain/auth/i_auth_service.dart';
+import 'package:sched/domain/auth/interface/auth_interface.dart';
 import 'package:sched/domain/auth/model/user_model.dart';
 import 'package:sched/domain/auth/value_objects.dart';
 import 'package:sched/domain/core/value_object.dart';
+
+import '../../domain/core/failures/failures.dart';
 
 
 @LazySingleton(as: IAuthService)
@@ -43,11 +45,10 @@ class AuthService implements IAuthService {
     try {
       final result=await firebaseAuth.signInWithEmailAndPassword(email:
      emailAddressStr, password: passwordStr);
-       print(result);      return const Right(unit);
+         return const Right(unit);
     } on FirebaseAuthException catch (e) {
 
       if (e.code == 'wrong-password' || e.code == 'user-not-found') {
-        print(e.code);
         return const Left(AuthFailure.invalidEmailAndPasswordCombination());
       } else {
         return const Left(AuthFailure.serverError());
@@ -74,7 +75,15 @@ class AuthService implements IAuthService {
   }
 
   @override
-  Option<UserModel> getSignedInUser() => some(UserModel(id: UniqueId.fromUniqueString(firebaseAuth.currentUser?.uid)));
+  Either<ValueFailure<String>, UserModel>  getSignedInUser() {
+    if(firebaseAuth.currentUser==null){
+      return left(const ValueFailure.empty(failedValue: 'not Authenticated'));
+    } else{
+      return right(UserModel(id: UniqueId.fromUniqueString(firebaseAuth
+          .currentUser?.uid)));
+    }
+
+  }
 
   @override
   Future<void> signOut() {

@@ -43,7 +43,10 @@ class UniqueId extends ValueObject<String> {
     ));
   }
   factory UniqueId.fromUniqueString(String? uniqueId){
-    return UniqueId._( Right(uniqueId!));
+
+      return UniqueId._( right(uniqueId!));
+
+
   }
   UniqueId._(this.value);
 }

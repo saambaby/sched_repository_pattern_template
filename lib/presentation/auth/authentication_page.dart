@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:sched/application/auth/bloc/auth_bloc.dart';
+
 import 'package:sched/presentation/auth/widgets/sign_in_page.dart';
 import 'package:sched/presentation/auth/widgets/sign_up_page.dart';
 
+import '../../application/auth/bloc/auth_bloc.dart';
 import '../../injectable.dart';
 
 class Authentication extends StatelessWidget {

@@ -29,21 +29,14 @@ class _$AppRouter extends RootStackRouter {
   List<RouteConfig> get routes => [
         RouteConfig('/#redirect',
             path: '/', redirectTo: '/splash', fullMatch: true),
-        RouteConfig(AuthenticationRoute.name, path: '/auth', children: [
-          RouteConfig('*#redirect',
-              path: '*',
-              parent: AuthenticationRoute.name,
-              redirectTo: '',
-              fullMatch: true)
-        ]),
+        RouteConfig(AuthenticationRoute.name, path: '/auth'),
         RouteConfig(SplashRoute.name, path: '/splash')
       ];
 }
 
 /// generated route for [Authentication]
 class AuthenticationRoute extends PageRouteInfo<void> {
-  const AuthenticationRoute({List<PageRouteInfo>? children})
-      : super(name, path: '/auth', initialChildren: children);
+  const AuthenticationRoute() : super(name, path: '/auth');
 
   static const String name = 'AuthenticationRoute';
 }

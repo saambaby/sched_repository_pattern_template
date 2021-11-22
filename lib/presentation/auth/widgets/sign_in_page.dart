@@ -19,7 +19,9 @@ class _SignInPageState extends State<SignInPage> {
       listener: (context, state) {
         state.authFailureOrSuccessOption.fold(
             () {},
-            (either) => either.fold((failure) {
+            (either) => either.fold(
+                    (failure)
+                {
                   final snackBar = SnackBar(
                       content: failure.map(
                     cancelledByUser: (_) => Text(
@@ -50,9 +52,9 @@ class _SignInPageState extends State<SignInPage> {
                               fontWeight: FontWeight.w500,
                             )),
                   ));
-
                   ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                }, (_) {}));
+                },
+                    (_) {}));
       },
       builder: (context, state) {
         return SingleChildScrollView(

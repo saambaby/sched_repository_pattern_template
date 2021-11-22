@@ -1,7 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:sched/domain/auth/model/user_model.dart';
 import 'package:sched/domain/auth/value_objects.dart';
-import 'failure/auth_failure.dart';
+import '../../core/failures/failures.dart';
+import '../failure/auth_failure.dart';
 
 
 abstract class IAuthService{
@@ -14,7 +15,7 @@ abstract class IAuthService{
       required Password password,
    });
    Future<Either<AuthFailure, Unit>> signInWithGoogle();
-   Option<UserModel> getSignedInUser();
+   Either<ValueFailure<String>, UserModel>  getSignedInUser();
    Future<void> signOut();
 
 }

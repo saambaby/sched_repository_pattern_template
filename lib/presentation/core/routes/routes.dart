@@ -12,9 +12,6 @@ part 'routes.gr.dart';
     AutoRoute(
       page: Authentication,
       path: '/auth',
-      children: [
-        RedirectRoute(path: '*', redirectTo: ''),
-      ],
     ),
     AutoRoute(
       page: Splash,

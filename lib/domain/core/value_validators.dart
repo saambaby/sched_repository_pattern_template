@@ -20,7 +20,7 @@ Either<ValueFailure<String>, String> validatePassword(String input) {
 }
 
 Either<ValueFailure<String>, String> validateInputField(String input) {
-  if (isAlpha(input) && input.length <= 2) {
+  if (input.length <= 2) {
     return Right(input);
   } else {
     return Left(ValueFailure.invalidFieldValue(failedValue: input));

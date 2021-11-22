@@ -4,7 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
-import 'package:sched/domain/auth/i_auth_service.dart';
+import 'package:sched/domain/auth/interface/auth_interface.dart';
 
 
 part 'auth_init_event.dart';
@@ -23,10 +23,10 @@ class AuthInitBloc extends Bloc<AuthInitEvent, AuthInitState> {
       ) async*{
     yield* event.map(
         authCheckRequested: (e) async*{
-         final userOption=  _authService.getSignedInUser();
-         yield userOption.fold(
-                 () => const AuthInitState.unauthenticated() ,
-                 (_) => const AuthInitState.authenticated());
+          final userOption =  _authService.getSignedInUser();
+          yield userOption.fold(
+                  (l) =>const AuthInitState.unauthenticated() ,
+                  (r) => const AuthInitState.authenticated());
         },
         signedOut:(e) async*{
           await _authService.signOut();
