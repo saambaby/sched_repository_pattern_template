@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
@@ -9,7 +10,7 @@ import 'package:sched/domain/auth/model/user_model.dart';
 import 'package:sched/domain/auth/value_objects.dart';
 import 'package:sched/domain/core/value_object.dart';
 
-import '../../domain/core/failures/failures.dart';
+import '../../../domain/core/failures/failures.dart';
 
 
 @LazySingleton(as: IAuthService)
@@ -43,9 +44,10 @@ class AuthService implements IAuthService {
     final emailAddressStr = emailAddress.getOrCrash();
     final passwordStr = password.getOrCrash();
     try {
-      final result=await firebaseAuth.signInWithEmailAndPassword(email:
+   await firebaseAuth.signInWithEmailAndPassword(email:
      emailAddressStr, password: passwordStr);
-         return const Right(unit);
+
+      return const Right(unit);
     } on FirebaseAuthException catch (e) {
 
       if (e.code == 'wrong-password' || e.code == 'user-not-found') {

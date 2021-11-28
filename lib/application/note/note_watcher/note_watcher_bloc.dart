@@ -38,8 +38,8 @@ class NoteWatcherBloc extends Bloc<NoteWatcherEvent, NoteWatcherState> {
         /// here we are watching all events but if we want to watch both
         /// uncompleted and completed its not possible because at a time the
         /// stream never closes until the page is open
-       noteSubscription= _noteRepository.watchAll().listen((failureOrNote) =>
-            add(NoteWatcherEvent.notesReceived(failureOrNote)));
+       noteSubscription= _noteRepository.watchAll().listen((failureOrNote) 
+       =>add(NoteWatcherEvent.notesReceived(failureOrNote)));
       },
       watchUncompletedStarted: (e) async* {
         yield const NoteWatcherState.loading();
